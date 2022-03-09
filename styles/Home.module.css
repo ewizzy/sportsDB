@@ -17,3 +17,8 @@
 .mainBg {
 	background:#444;
 }
+.select {
+	width:auto;
+    display: inline-block;
+    margin-left: 15px;
+}
