@@ -5,4 +5,15 @@
 .main {
 	padding-top:50px;
 	padding-bottom:50px;
+	height:100vh;
+}
+.subTitle {
+	color:#fff;
+	margin-top:50px;
+	padding-bottom:20px;
+	font-size:22px;
+	display:block;
+}
+.mainBg {
+	background:#444;
 }

@@ -1,0 +1,30 @@
+.resultWrap {
+	color:#FFF;
+	padding:10px;
+	background:#212529;
+	border-bottom: 1px solid #333;
+}
+.dateWrap, .stadiumWrap {
+	color:#bbb;
+}
+.dateWrap img {
+	vertical-align:top;
+}
+.team1Wrap {
+	text-align:right;
+}
+.team2Wrap {
+	text-align:left;
+}
+.team1Wrap a, .team2Wrap a {
+	color:#678560;
+}
+.team1Wrap a:hover, .team2Wrap a:hover {
+	color:#fff;
+}
+.scoreWrap {
+	text-align:center;
+}
+.stadiumWrap img {
+	margin-top:-3px;
+}
