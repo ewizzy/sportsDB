@@ -4,18 +4,22 @@ import styles from '../styles/Home.module.css';
 import { Container, Row, Col, Spinner } from 'react-bootstrap';
 import Result from '../components/result';
 export default function Home() {
-    const [ roundResults, setRoundResults ] = useState();
+    const [roundResults, setRoundResults ] = useState();
     const [isLoading, setIsLoading] = useState(false);
 	const [currentRound, setCurrentRound] = useState(28); //28 is latest round in premier league
+    const getRound = async () => {
+		setIsLoading(true);
+      const response = await fetch(`/api/roundResults/${currentRound}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      const currRound = await response.json();
+      setRoundResults(currRound.data);
+	  setIsLoading(false);
+    }
     useEffect(() => {
-        setIsLoading(true);
-        fetch(`/api/roundResults/${currentRound}`)
-            .then(response => response.json())
-            .then(data => {
-                setRoundResults(data);
-                setIsLoading(false);
-            })
-    }, []);
+		getRound();
+	}, []);
   return (
     <div className={styles.mainBg}>
 
@@ -25,8 +29,10 @@ export default function Home() {
 		<Col>
         <h1 className={styles.mainTitle}>England Premier League</h1>
 	    <span className={styles.subTitle}>Latest results</span>
-	  {!isLoading?(
-	    <Result date="21 Sep 21" team1="Arsenal" team2="Man City" result="2-2" stadium="Etihad Stadium" team1img="" team2img="" />
+	  {!isLoading&&roundResults?(
+		  roundResults.events.map(function(item){
+		  	return <Result date={item.dateEvent} team1={item.strHomeTeam} team2={item.strAwayTeam} result={item.intHomeScore+'-'+item.intAwayScore} stadium={item.strVenue} team1img={item.homeTeamIcon} team2img={item.awayTeamIcon} team1id={item.idHomeTeam} team2id={item.idAwayTeam} />
+		  })
 	  ):(
 		  <Spinner animation="border" variant="success" />
 	  )}
@@ -36,16 +42,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+	  <p>Copyright text here</p>
       </footer>
     </div>
   )
