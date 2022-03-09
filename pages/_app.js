@@ -2,6 +2,7 @@ import Head from "next/head";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.css';
 import AppHeader from '../components/header';
+import AppFooter from '../components/footer';
 function MyApp({ Component, pageProps }) {
 	return (
 	<>
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
 	</Head>
 	<AppHeader />	
 	<Component {...pageProps} />
+	<AppFooter />	
 	</>
 	);
 }

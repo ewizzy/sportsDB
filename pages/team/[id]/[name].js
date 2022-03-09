@@ -47,10 +47,6 @@ export default function Team(teamData) {
 	    </Row>	
 	    </Container>
       </main>
-
-      <footer className={styles.footer}>
-	  <p>Copyright text here</p>
-      </footer>
     </div>
   )
 }

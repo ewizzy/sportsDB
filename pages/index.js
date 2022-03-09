@@ -53,10 +53,6 @@ export default function Home() {
 	    </Row>	
 	    </Container>
       </main>
-
-      <footer className={styles.footer}>
-	  <p>Copyright text here</p>
-      </footer>
     </div>
   )
 }
