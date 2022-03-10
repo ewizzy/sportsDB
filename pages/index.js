@@ -43,8 +43,8 @@ export default function Home() {
 	  </span>
 	  
 	  {!isLoading&&roundResults?(
-		  roundResults.events.map(function(item){
-		  	return <Result date={item.dateEvent} team1={item.strHomeTeam} team2={item.strAwayTeam} result={item.intHomeScore+'-'+item.intAwayScore} stadium={item.strVenue} team1img={item.homeTeamIcon} team2img={item.awayTeamIcon} team1id={item.idHomeTeam} team2id={item.idAwayTeam} />
+		  roundResults.events.map(function(item, i){
+		  	return <Result key={i} date={item.dateEvent} team1={item.strHomeTeam} team2={item.strAwayTeam} result={item.intHomeScore+'-'+item.intAwayScore} stadium={item.strVenue} team1img={item.homeTeamIcon} team2img={item.awayTeamIcon} team1id={item.idHomeTeam} team2id={item.idAwayTeam} />
 		  })
 	  ):(
 		  <Spinner animation="border" variant="success" />
