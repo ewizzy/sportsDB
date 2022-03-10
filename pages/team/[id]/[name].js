@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Container, Row, Col, Spinner, Form } from 'react-bootstrap';
 import styles from '../../../styles/Home.module.css';
 export default function Team(teamData) {
-	console.log(teamData);
   return (
     <div className={styles.mainBg}>
 
