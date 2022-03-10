@@ -84,3 +84,24 @@
 	padding-top:10px;
 	padding-bottom:10px;
 }
+@media (max-width: 767px) {
+	.subTitle {
+		margin-top:30px;
+	}
+	.main {
+		height:auto;
+		min-height:500px;
+	}
+	.teamLogo {
+	    max-width: 50px;
+	    margin-top: -15px;
+	    margin-right: 10px;
+	}
+	.teamBanner {
+		margin-top: 20px;
+	}
+	.max40, .max60 {
+		width:100%;
+		max-width:100%;
+	}
+}
